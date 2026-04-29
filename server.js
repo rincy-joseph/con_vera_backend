@@ -16,13 +16,14 @@ const io = new Server(server, {
 })
 
 io.on('connection', (socket) => {
-    socket.on('send_message', () => {
-        io.emit("Message Received")
+    socket.on('send_message', (data) => {
+        console.log("data", data)
+        io.emit("receive_message", data)
     })
     socket.on('disconnect', () => {
         console.log("Socket disconnected")
     })
 })
-app.listen(PORT, () => {
+server.listen(PORT, () => {
     console.log("Server Ready for Running in PORT : ", PORT)
 })

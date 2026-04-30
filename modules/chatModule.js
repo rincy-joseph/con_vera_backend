@@ -1,5 +1,6 @@
 const message = {
-    create: async() => {
-
+    create: async (data) => {
+        console.log("CommonMessage data", data)
     }
 }
+module.exports = message

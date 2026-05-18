@@ -1,6 +1,16 @@
-const mysql = require('mysql2/promise')
-const db =  mysql.createConnection({
-    host: 'localhost',
-    database: 'con_vera'
+const mssql = require('mssql')
+async function connectDB(){
+const db = await mssql.connect({
+    user: 'app_user', 
+    password: 'MySecurePassword123',
+    server: 'localhost',
+    database: 'con_vera_db',
+    port: 50221,
+    options: {
+        encrypt: true, 
+        trustServerCertificate: true
+    }
 })
-module.exports = db
+return db
+}
+module.exports = connectDB

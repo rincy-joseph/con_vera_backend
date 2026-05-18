@@ -14,7 +14,7 @@
   "dependencies": {
     "express": "^5.2.1",
     "http": "^0.0.1-security",
-    "mysql2": "^3.22.3",
+    "mssql": "^12.5.4",
     "socket.io": "^4.8.3"
   }
 }

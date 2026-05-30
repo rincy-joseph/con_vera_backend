@@ -6,11 +6,14 @@ const { Server } = require('socket.io')
 const chatRouter = require('./modules/chatRouter')
 const server = http.createServer(app)
 const chatService = require('./modules/chatServices')
+const ListRouter = require('./modules/MessageList/messageRouter')
 
 const PORT = 3001
 app.use(cors())
-app.use(express.json)
+app.use(express.json())
 app.use('/api', chatRouter)
+app.use('/api', ListRouter)
+
 const io = new Server(server, {
     cors: {
         origin: "http://localhost:3000",

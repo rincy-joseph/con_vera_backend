@@ -1,8 +1,8 @@
-const { messageList } = require("./messageModule")
+const message = require("./chatModule");
 
-const get = async () => {
+const getDetail = async () => {
     try {
-        const response = await messageList?.fetchCommunications();
+        const response = await message?.getDetails();
         return {
             "success": true,
             "successCode": 200,
@@ -20,4 +20,4 @@ const get = async () => {
         throw error;
     }
 }
-module.exports = { get }
+module.exports = { getDetail }

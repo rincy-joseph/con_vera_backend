@@ -3,10 +3,10 @@ const cors = require('cors')
 const http = require('http')
 const app = express()
 const { Server } = require('socket.io')
-const chatRouter = require('./modules/chatRouter')
 const server = http.createServer(app)
-const chatService = require('./modules/chatServices')
+const chatService = require('./modules/ChatDetails/chatServices')
 const ListRouter = require('./modules/MessageList/messageRouter')
+const chatRouter = require('./modules/ChatDetails/chatRouter')
 
 const PORT = 3001
 app.use(cors())

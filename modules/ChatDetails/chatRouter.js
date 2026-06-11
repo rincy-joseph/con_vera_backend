@@ -1,5 +1,5 @@
 const express = require('express')
 const router = express.Router()
 const chatController = require('./chatController')
-router.post('/InsertChat', chatController.handleMessage)
+router.get('/GetMessagedetails', chatController.getDetails)
 module.exports = router

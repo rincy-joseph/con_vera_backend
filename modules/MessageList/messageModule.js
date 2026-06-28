@@ -15,6 +15,25 @@ const messageList = {
             console.log("error", error)
             throw error;
         }
+    },
+    createDiscussion: async (data) => {
+        try {
+            const db = connectDB();
+            const result = (await db).request()
+                .input('titleId', 123)
+                .input('createdBy', data?.createdBy)
+                .input('title', data?.title)
+                .input('description', data?.description)
+                .input('tags', JSON.stringify(data?.tags))
+                .execute("CreateDiscussionHub");
+            if (result) {
+                return result
+            }
+        }
+        catch (error) {
+            throw error;
+        }
+
     }
 }
 module.exports = { messageList }

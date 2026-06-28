@@ -4,14 +4,12 @@ const message = {
     create: async (data) => {
         try {
             const db = await connectDB()
-            console.log("CommonMessage data", data?.message, data?.senderMAC)
-            // console.log("CommonMessage db", await db)
 
             const sql = 'INSERT INTO message_hash (message, brow_id, title_id) values ( @message, @brow_id , @title_id )';
             const result = await db.request()
                 .input('message', data?.message)
                 .input('brow_id', data?.senderMAC)
-                .input('title_id', '123')
+                .input('title_id', data?.title)
                 .query(sql);
             return result;
         }
@@ -23,15 +21,10 @@ const message = {
     getDetails: async (id) => {
         try {
             const db = await connectDB()
-            // console.log("CommonMessage data", data?.message, data?.senderMAC)
-            // // console.log("CommonMessage db", await db)
-
-            // const sql = 'INSERT INTO message_hash (message, brow_id, title_id) values ( @message, @brow_id , @title_id )';
-            // const result = await db.request()
-            //     .input('message', data?.message)
-            //     .input('brow_id', data?.senderMAC)
-            //     .input('title_id', '123')
-            //     .query(sql);
+            const sql = 'SELECT * FROM message_hash WHERE title_id = @title_id';
+            const result = await db.request()
+                .input('title_id', id)
+                .query(sql);
             return result;
         }
         catch (error) {

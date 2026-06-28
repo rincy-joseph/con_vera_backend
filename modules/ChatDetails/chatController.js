@@ -3,8 +3,7 @@ const { getDetail } = require("./chatServices");
 
 const getDetails = async (req, res) => {
     try {
-        console.log("CommonMessage req", req)
-        const response = await getDetail();
+        const response = await getDetail(req?.params?.id || 0);
         res.status(200).json(response)
     }
     catch (err) {

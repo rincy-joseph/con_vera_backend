@@ -3,18 +3,23 @@
   "version": "1.0.0",
   "main": "server.js.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node --watch server.js",
     "dev": "node --watch server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "test:watch": "jest --watchAll"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "crypto": "^1.0.1",
     "express": "^5.2.1",
     "http": "^0.0.1-security",
     "mssql": "^12.5.4",
     "socket.io": "^4.8.3"
+  },
+  "devDependencies": {
+    "jest": "^30.4.2"
   }
 }

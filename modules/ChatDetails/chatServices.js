@@ -3,7 +3,6 @@ const message = require("./chatModule");
 const getDetail = async (id) => {
     try {
         const response = await message?.getDetails(id);
-        console.log('resp', response?.recordset?.map(item => item))
         return {
             "success": true,
             "successCode": 200,
